@@ -3,39 +3,38 @@
 
 $(document).ready(function () {
     $("#panierClick").click(function () {
-        // alert("yoooo")
         $("#thePanier").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pagePC, #pagePS4, #pageSwitch, #pageXbox ").css("visibility", "hidden")
+        $("#homepage, #pagePC, #pagePS4, #pageSwitch, #pageXbox, #pageContact ").css("visibility", "hidden")
 
     })
 
     $("#openPS4").click(function () {
         $("#pagePS4").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pageXbox ").css("visibility", "hidden")
+        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pageXbox, #pageContact ").css("visibility", "hidden")
 
     })
 
     $("#openXBOX").click(function () {
         $("#pageXbox").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pagePS4").css("visibility", "hidden")
+        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pagePS4, #pageContact").css("visibility", "hidden")
 
     })
 
     $("#openSWITCH").click(function () {
         $("#pageSwitch").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pagePC, #thePanier, #pageXbox, #pagePS4").css("visibility", "hidden")
+        $("#homepage, #pagePC, #thePanier, #pageXbox, #pagePS4, #pageContact").css("visibility", "hidden")
 
     })
 
     $("#openPC").click(function () {
         $("#pagePC").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pageXbox, #thePanier, #pageSwitch, #pagePS4").css("visibility", "hidden")
+        $("#homepage, #pageXbox, #thePanier, #pageSwitch, #pagePS4, #pageContact").css("visibility", "hidden")
 
     })
 
     $("#openhome").click(function () {
         $("#homepage").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#pagePC, #pageXbox, #thePanier, #pageSwitch, #pagePS4").css("visibility", "hidden")
+        $("#pagePC, #pageXbox, #thePanier, #pageSwitch, #pagePS4, #pageContact").css("visibility", "hidden")
 
     })
 
@@ -47,24 +46,31 @@ $(document).ready(function () {
     // bouton En savoir plus sur Xbox
     $("#plusXbox").click(function () {
         $("#pageXbox").css("visibility", "visible")
-        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pagePS4").css("visibility", "hidden")
+        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pagePS4, #pageContact").css("visibility", "hidden")
     })
     // bouton En savoir plus sur Ps4
     $("#plusPs4").click(function () {
         $("#pagePS4").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pageXbox ").css("visibility", "hidden")
+        $("#homepage, #pagePC, #thePanier, #pageSwitch, #pageXbox, #pageContact ").css("visibility", "hidden")
 
     })
     // bouton En savoir plus sur PC
     $("#plusPc").click(function () {
         $("#pagePC").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pageXbox, #thePanier, #pageSwitch, #pagePS4").css("visibility", "hidden")
+        $("#homepage, #pageXbox, #thePanier, #pageSwitch, #pagePS4, #pageContact").css("visibility", "hidden")
 
     })
     // bouton En savoir plus sur Switch
     $("#plusSwitch").click(function () {
         $("#pageSwitch").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
-        $("#homepage, #pagePC, #thePanier, #pageXbox, #pagePS4").css("visibility", "hidden")
+        $("#homepage, #pagePC, #thePanier, #pageXbox, #pagePS4, #pageContact").css("visibility", "hidden")
+
+    })
+
+    // page contact
+    $("#openContact").click(function () {
+        $("#pageContact").css("visibility", "visible") // MA DIV PANIER S'AFFICHE 
+        $("#homepage, #pagePC, #thePanier, #pageXbox, #pagePS4, #pageSwitch").css("visibility", "hidden")
 
     })
 
@@ -107,14 +113,6 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
     //pour valider nos articles au clique ca actualise de zero (btn-purchase = valider notre panier) (bouton existante sur html)
 }
-
-
-/*$(document).ready(function(){//fonction relier avec mon <a>X</a> pour effacer le input et recharcger la page
-    $("#refrech").click(function(){
-       $("#searchBar").val("");
-        location.reload();
-    });
-    });*/
 
 
 //fonction liée au bouton validé
@@ -167,6 +165,7 @@ function addToCartClicked(event) {
     //fonction avec 3 paramètres qui son nos 3 var
     addItemToCart(title, price, imageSrc)
     updateCartTotal()
+    alert(`le jeu ${title} a été ajouté au panier`)
 } //Ajouter de notre arcticle dans notre panier au clique (titre + prix + image)
 
 //Fonction qui s'applique à nos 3 paramètres
@@ -184,9 +183,8 @@ function addItemToCart(title, price, imageSrc) {
     for (var i = 0; i < cartItemNames.length; i++) {
         //SI le titre est == à la varible title,
         if (cartItemNames[i].innerText == title) {
-            //alert
-            alert('Le jeu a déjà été Ajouteré au panier')
-            return
+            alert('Le jeu a déjà été Ajouté au panier')
+            return true;
         }
     }
     //creation d'une div avdc toute les infos de l'article choisi 

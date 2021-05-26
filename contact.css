@@ -5,14 +5,14 @@
 /*icone réseaux sociaux*/
 
 .search-container{
-  visibility: hidden;
+  visibility: visible;
 }
 
-svg{
+.reseauxSociauxContact{
     color: #e6b7d6;
     margin-top: 25px;
 }
-svg:hover{
+.reseauxSociauxContact:hover{
     color: #d85c9b;
   }
 

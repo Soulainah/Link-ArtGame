@@ -63,6 +63,9 @@ h5{
 #pageXbox{
   visibility: hidden;
 }
+#pageContact{
+  visibility: hidden;
+}
 
 .titrePages{
 color: black;
